@@ -3,6 +3,9 @@ use std::cmp::Ord;
 
 // An external iterator for this purpose is impractical in Rust. As such, we provide an internal
 // iterator as an alternative.
+//
+// I should also note that, although such an iterator might be expressed in C#, it would exhibit
+// soundness problems regarding the lifetime of the array references produced.
 
 pub struct PermutationsIter<'a, T: 'a>(&'a mut [T]);
 
