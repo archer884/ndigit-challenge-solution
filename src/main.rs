@@ -15,13 +15,10 @@ fn main() {
 fn sum_of(s: &[u64]) -> u64 {
     use permutations::Permutations;
 
-    let mut sum = 0;
     let mut s: Vec<_> = s.into_iter().cloned().collect();
 
     s.sort();
-    s.permutations().for_each(|s| sum += build_number(&s));
-
-    sum
+    s.permutations().map(|s| build_number(s)).sum()
 }
 
 fn as_integers<S: AsRef<str>>(input: S) -> Option<Vec<u64>> {
