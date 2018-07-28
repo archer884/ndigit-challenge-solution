@@ -40,13 +40,13 @@ where
     type Item = U;
 
     fn next(&mut self) -> Option<Self::Item> {
-        if !self.complete {
-            let result = (self.f)(self.source.0);
-            self.complete = self.source.0.next_permutation();
-            Some(result)
-        } else {
-            None
+        if self.complete {
+            return None;
         }
+
+        let result = (self.f)(self.source.0);
+        self.complete = !self.source.0.next_permutation();
+        Some(result)
     }
 }
 
