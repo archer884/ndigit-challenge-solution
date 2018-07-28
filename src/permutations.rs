@@ -17,7 +17,7 @@ impl<'a, T: Ord> PermutationsIter<'a, T> {
         }
     }
 
-    pub fn map<U, F: FnMut(&[T]) -> U>(&'a mut self, mut f: F) -> IterMap<'a, T, U, F> {
+    pub fn map<U, F: FnMut(&[T]) -> U>(&'a mut self, f: F) -> IterMap<'a, T, U, F> {
         IterMap {
             source: self,
             complete: false,
