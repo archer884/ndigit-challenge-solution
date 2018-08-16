@@ -1,4 +1,4 @@
-extern crate permutohedron;
+#![feature(rust_2018_preview, uniform_paths)]
 
 mod digits;
 mod permutations;
